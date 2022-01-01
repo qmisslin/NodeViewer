@@ -1,0 +1,10 @@
+html, body {
+    background-color: #eeeeee;
+}
+
+#container {
+    margin: 20px;
+    background-color: #252525;
+    width: 90vw;
+    height: 90vh;
+}

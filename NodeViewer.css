@@ -1,0 +1,106 @@
+:root {
+    --space: 8px;
+    --color-01: #ffffff;
+    --color-02: #f3f3f3;
+    --color-invert: #151515;
+    --radius: 8px;
+    --shadow: drop-shadow( 0px 0px 2px rgba(0, 0, 0, .4));
+}
+
+.nv-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-position: 0px 0px;
+    background-repeat: repeat;
+}
+.nv-container * {
+    font-family: 'Montserrat', sans-serif;
+}
+.nv-container>* {
+    width: 1000px;
+    height: 1000px;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    overflow: visible;
+    filter: var(--shadow);
+    white-space: nowrap;
+    backface-visibility: hidden;
+}
+.nv-node {
+    border-radius: var(--radius);
+    background-color: var(--color-01);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.nv-node>* {
+    display: flex;
+    flex-direction: row;
+}
+.nv-node-middle {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    align-content: center;
+}
+.nv-node-socket-row {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+.nv-node-socket-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+.nv-node-content {
+    flex-grow: 1;
+    min-width: 12px;
+    width: 100%;
+    padding: var(--space);
+    cursor: move;
+}
+.nv-node-socket {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: var(--space);
+}
+.nv-node-socket:hover {
+    background-color: rgba(128, 128, 128, 0.2);
+    cursor: pointer;
+}
+.nv-node-socket-column.nv-invert .nv-node-socket{
+    flex-direction: row-reverse;
+}
+.nv-node-socket-point {
+    min-width: 14px;
+    min-height: 14px;
+    border-radius: var(--radius);
+    background-color: var(--color-invert);
+}
+.nv-node-socket-title {
+    padding: 0 var(--space);
+    font-size: 12px;
+}
+.nv-no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.nv-background path {
+    stroke-width:4px;
+    stroke-linecap:round;
+    fill:transparent;
+}
