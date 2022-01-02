@@ -28,6 +28,7 @@
     filter: var(--shadow);
     white-space: nowrap;
     backface-visibility: hidden;
+    box-shadow: inset 1px 1px 0 0 red;
 }
 .nv-node {
     border-radius: var(--radius);

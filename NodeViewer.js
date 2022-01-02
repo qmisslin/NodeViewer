@@ -154,7 +154,7 @@ class NV_Node {
         this.position = position.step(10);
         this.container.setStyle({
             left: `${this.position.x}px`,
-            top: `${this.position.y}px`
+            top: `${this.position.y}px`,
         });
     }
     dragMouseDown(event) {
@@ -298,11 +298,11 @@ class NV_Container {
         });
         this.background.setStyle({
             transform: `scale(${this.size}) translate(${this.position.x}px, ${this.position.y}px)`,
-            transformOrigin: `${this.origin.x}px ${this.origin.y}px`
+            transformOrigin: `${this.origin.x} ${this.origin.y}`
         });
         this.content.setStyle({
             transform: `scale(${this.size}) translate(${this.position.x}px, ${this.position.y}px)`,
-            transformOrigin: `${this.origin.x}px ${this.origin.y}px`
+            transformOrigin: `${this.origin.x} ${this.origin.y}`
         });
         this.updateTheme();
     }
@@ -329,8 +329,10 @@ class NV_Container {
     zoom(event) {
         event.preventDefault();
         //let rect = this.container.dom.getBoundingClientRect();
+        //console.log(rect);
         //let delta = new V(rect.x, rect.y);
-        //this.origin = new V(event.clientX, event.clientY).add(this.position.sub(delta));
+        //this.origin = new V(event.clientX * this.size, event.clientY * this.size).sub(delta);
+        this.origin = new V(0.5, 0.5);
         this.size += event.deltaY * -0.001;
         this.size = Math.min(Math.max(.125, this.size), 4);
         this.updateTransform();
